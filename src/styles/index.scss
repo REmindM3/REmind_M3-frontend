@@ -1,0 +1,64 @@
+* {
+    margin: 0.5vw;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  #form-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // margin-left: 12vw;
+    // margin-right: 12vw;
+  }
+  
+  #note-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  #editButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // margin-left: 12vw;
+    // margin-right: 25vw;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
+  }
+  
+  button.btn-primary {
+    margin: 1vw;
+  }
+  
+  button {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+    width:9vw;
+  }

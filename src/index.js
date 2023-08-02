@@ -1,13 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./styles/index.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+import EventsProvider from "./contexts/EventsContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// Index.js = config & startup stuff about the ReactJS project
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <EventsProvider>
+        <App />
+      </EventsProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
