@@ -8,7 +8,7 @@ export default function Homepage(props) {
 
   return (
     <div>
-      <h1>Event Taking Aplication</h1>
+      <h1 id="main-logo" alt= "main-logo">REmind_M3</h1>
 
       {/* Event Count Component */}
       <h3>We have {globalEventsData.length} events in storage!</h3>

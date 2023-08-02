@@ -1,5 +1,6 @@
 * {
     margin: 0.5vw;
+    background-color: rgb(202, 201, 201);
   }
   
   body {
@@ -18,7 +19,7 @@
     // margin-right: 12vw;
   }
   
-  #note-box {
+  #event-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,6 +32,16 @@
     // margin-left: 12vw;
     // margin-right: 25vw;
   }
+
+  #main-logo {
+    display:flex;
+    font-family: lato;
+    font-size: 10vw;
+    text-decoration: yellow 50px;
+    outline-width: 5vw;
+    font-weight: bold;
+  }
+
   
   h1,
   h2,
