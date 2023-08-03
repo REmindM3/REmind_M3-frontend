@@ -29,14 +29,14 @@ export default function EventDisplay(props) {
                 - ID (number)
                 - title (string)
                 - description (string)
-                - isCompleted (boolean)
-                - due date (JS Date)
+                - isPrivate (boolean)
+                - alert date (JS Date)
                 - created at date (JS Date)
                 */}
       <h4>{localEvent.title}</h4>
       <p>{localEvent.description}</p>
       {/* <h5>status:</h5> */}
-      <h5>status:<p>{localEvent.isComplete ? "COMPLETED" : "NOT YET DONE"}</p></h5>
+      <h5>status:<p>{localEvent.isPrivate ? "PRIVATE" : "PUBLIC"}</p></h5>
 
       {/* makes a read-only checkbox */}
       <input
@@ -44,10 +44,10 @@ export default function EventDisplay(props) {
         disabled="disabled" // <--- user cannot click the checkbox
         onChange={null}
         readOnly={true}
-        checked={Boolean(localEvent.isCompleted)}
-        value={localEvent.isComplete}
+        checked={Boolean(localEvent.isPrivate)}
+        value={localEvent.isPrivate}
       />
-      <h5>Due Date: {new Date(localEvent.dueDate).toLocaleDateString()}</h5>
+      <h5>Alert Date: {new Date(localEvent.dueDate).toLocaleDateString()}</h5>
       {/* <input type="date" readOnly value={event.dueDate} /> */}
       <h5>
         Created At: {new Date(localEvent.createdAtDate).toLocaleDateString()}

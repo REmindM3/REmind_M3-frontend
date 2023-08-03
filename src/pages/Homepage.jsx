@@ -1,17 +1,22 @@
-
 import EventForm from "../components/EventForm";
 import EventParent from "../components/EventParent";
 import { useEventData } from "../contexts/EventsContext";
+import logo from "../img/header-logo.png";
+import MyCarousel from "../components/home.jsx"; // import MyCarousel component
 
 export default function Homepage(props) {
   const globalEventsData = useEventData();
 
   return (
     <div>
-      <h1 id="main-logo" alt= "main-logo">REmind_M3</h1>
+      {/* main heading image */}
+      <img src={logo} id="main-logo" alt="Logo" />
+
+      {/* Add MyCarousel component */}
+      <MyCarousel />
 
       {/* Event Count Component */}
-      <h3>We have {globalEventsData.length} events in storage!</h3>
+      <h3>Welcome, there are {globalEventsData.length} events active!</h3>
 
       {/* Event Form Component */}
       <h3>Create A New Event:</h3>

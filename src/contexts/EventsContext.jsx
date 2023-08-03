@@ -4,10 +4,10 @@ import { useLocalStorage } from "react-use";
 const initialEventsData = [
   // {
   //   id: 1,
-  //   title: "Welcome to the \nNotation Station!",
-  //   description: "Make some events, people!",
-  //   isCompleted: false,
-  //   dueDate: new Date().setDate(new Date().getDate() + 1), // Current date plus one day (in future.)
+  //   title: "Bobs birthday",
+  //   description: "Lets party, people!",
+  //   isPrivate: false,
+  //   alertDate: new Date().setDate(new Date().getDate() + 1), // Current date plus one day (in future.)
   //   createdAtDate: Date.now(),
   // },
 ];
@@ -52,7 +52,7 @@ const eventsReducer = (previousState, instructions) => {
     case "delete":
       console.log("ToDo: Delete event from state");
       break;
-    case "sortByuDueDate":
+    case "sortByAlertDate":
       console.log("Sorted state data by due date");
       break;
     case "sortByCreatedDate":

@@ -2,8 +2,8 @@
 - ID (number)
 - title (string)
 - Description (string)
-- IsCompleted (boolean)
-- due date (JS Date)
+- IsPrivate (boolean)
+- Alert date (JS Date)
 - created at date (JS Date)
 */
 
@@ -24,8 +24,8 @@ export default function EventForm(props) {
   //   const [localId, setLocalId] = useState("");
   const [localTitle, setLocalTitle] = useState("");
   const [localDescription, setLocalDescription] = useState("");
-  const [localIsCompleted, setLocalIsCompleted] = useState("");
-  const [localDueDate, setLocalDueDate] = useState(
+  const [localIsPrivate, setLocalIsPrivate] = useState("");
+  const [localAlertDate, setLocalAlertDate] = useState(
     new Date().setDate(new Date().getDate() + 1)
   );
   const [localCreatedAtDate, setLocalCreatedAtDate] = useState(Date.now());
@@ -39,8 +39,8 @@ export default function EventForm(props) {
       // We found a event!!!
       setLocalTitle(tempEvent.title);
       setLocalDescription(tempEvent.description);
-      setLocalIsCompleted(tempEvent.isCompleted);
-      setLocalDueDate(tempEvent.dueDate);
+      setLocalIsPrivate(tempEvent.isPrivate);
+      setLocalAlertDate(tempEvent.AlertDate);
       setLocalCreatedAtDate(tempEvent.localCreatedAtDate);
     }
   }, [globalEventsData, id]);
@@ -50,8 +50,8 @@ export default function EventForm(props) {
       id: id || globalEventsData.length + 1,
       title: localTitle,
       description: localDescription,
-      isComplete: localIsCompleted,
-      dueDate: localDueDate,
+      isPrivate: localIsPrivate,
+      AlertDate: localAlertDate,
       createdAtDate: localCreatedAtDate,
     };
 
@@ -81,23 +81,23 @@ export default function EventForm(props) {
           onChange={(event) => setLocalDescription(event.target.value)}
         />
 
-        <label>Is Completed:</label>
+        <label>Private Event:</label>
         <input
           type="checkbox"
-          name="isCompleted"
-          value={localIsCompleted}
-          checked={localIsCompleted}
-          onChange={(event) => setLocalIsCompleted(!localIsCompleted)}
+          name="isPrivate"
+          value={localIsPrivate}
+          checked={localIsPrivate}
+          onChange={(event) => setLocalIsPrivate(!localIsPrivate)}
         />
 
-        <label>Due Date:</label>
+        <label>Alert Date:</label>
         <input
           type="date"
-          name="dueDate"
-          value={new Date(localDueDate).toISOString().split("T")[0]}
+          name="alertDate"
+          value={new Date(localAlertDate).toISOString().split("T")[0]}
           onChange={(event) => {
             console.log(event.target.value);
-            setLocalDueDate(event.target.value);
+            setLocalAlertDate(event.target.value);
           }}
         />
 
