@@ -6,9 +6,12 @@ const initialEventsData = [
   //   id: 1,
   //   title: "Bobs birthday",
   //   description: "Lets party, people!",
-  //   isPrivate: false,
+  //   isPrivate: boolean,
+  //   isActive: boolean
   //   alertDate: new Date().setDate(new Date().getDate() + 1), // Current date plus one day (in future.)
   //   createdAtDate: Date.now(),
+  //   creator: username,
+  //   
   // },
 ];
 

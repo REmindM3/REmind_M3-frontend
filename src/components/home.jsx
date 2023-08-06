@@ -1,16 +1,15 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
-
+import img from "../img/mind-cube-17.jpg"
 function MyCarousel() {
   return (
     <Carousel>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://placekeanu.com/20/15"
+          src={img}
           alt="First slide"
         />
-        
       </Carousel.Item>
       <Carousel.Item>
         <img

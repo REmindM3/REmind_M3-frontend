@@ -1,20 +1,12 @@
-/*
-- ID (number)
-- title (string)
-- Description (string)
-- IsPrivate (boolean)
-- Alert date (JS Date)
-- created at date (JS Date)
-*/
-
 import { useEffect, useState } from "react";
 import { useEventData, useEventDispatch } from "../contexts/EventsContext";
 import Button from "react-bootstrap/Button";
+import { createEvent } from "../services/eventsServices";
 
 export default function EventForm(props) {
   // If this is null/no prop provided, we are creating a event
   // If id has value, we are editing a event.
-  const { id } = props;
+  const { _id } = props;
 
   // this is to read the global events data:
   const globalEventsData = useEventData();
@@ -22,6 +14,7 @@ export default function EventForm(props) {
   const globalEventsDispatch = useEventDispatch();
 
   //   const [localId, setLocalId] = useState("");
+  // const [localCreator, setLocalCreator] = useState("");
   const [localTitle, setLocalTitle] = useState("");
   const [localDescription, setLocalDescription] = useState("");
   const [localIsPrivate, setLocalIsPrivate] = useState("");
@@ -32,7 +25,7 @@ export default function EventForm(props) {
 
   useEffect(() => {
     let tempEvent = globalEventsData.find((globalSpecificEvent) => {
-      return globalSpecificEvent.id === id;
+      return globalSpecificEvent._id === _id;
     });
 
     if (tempEvent) {
@@ -43,11 +36,11 @@ export default function EventForm(props) {
       setLocalAlertDate(tempEvent.AlertDate);
       setLocalCreatedAtDate(tempEvent.localCreatedAtDate);
     }
-  }, [globalEventsData, id]);
+  }, [globalEventsData, _id]);
 
   const saveEventToGlobal = () => {
     let tempNewEvent = {
-      id: id || globalEventsData.length + 1,
+      username: "jairo",
       title: localTitle,
       description: localDescription,
       isPrivate: localIsPrivate,
@@ -55,9 +48,10 @@ export default function EventForm(props) {
       createdAtDate: localCreatedAtDate,
     };
 
-    if (id) {
+    if (_id) {
       globalEventsDispatch({ type: "update", updatedEvent: tempNewEvent });
     } else {
+      createEvent(tempNewEvent).then((data) => console.log(data));
       globalEventsDispatch({ type: "create", newEvent: tempNewEvent });
     }
   };

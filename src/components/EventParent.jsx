@@ -11,7 +11,7 @@ export default function EventParent(props) {
 
   return (
     <div id="editButton">
-      {editMode ? <EventForm id={props.id} /> : <EventDisplay id={props.id} />}
+      {editMode ? <EventForm _id={props._id} /> : <EventDisplay _id={props._id} />}
       <button onClick={toggleEditMode}>Toggle Edit Mode</button>
     </div>
   );

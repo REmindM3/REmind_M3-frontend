@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useEventData } from "../contexts/EventsContext";
 
 export default function EventDisplay(props) {
-  const { id } = props;
+  const { _id } = props;
   const [localEvent, setLocalEvent] = useState({});
 
   const globalEventsData = useEventData();
@@ -13,7 +13,7 @@ export default function EventDisplay(props) {
 
     setLocalEvent(
       globalEventsData.find((globalSpecificEvent) => {
-        return globalSpecificEvent.id === id;
+        return globalSpecificEvent._id === _id;
       })
     );
 
@@ -21,7 +21,7 @@ export default function EventDisplay(props) {
     // setLocalEvent(globalEventsData.find(globalSpecificEvent => globalSpecificEvent.id === id));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [globalEventsData, id]);
+  }, [globalEventsData, _id]);
 
   return (
     <div>

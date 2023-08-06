@@ -41,17 +41,24 @@ body {
   border-radius: 13px;
 }
 
-.carousel img {
-  height: 10vw;
-  width: 10vw;
+.carousel {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  height: 23vh;
+  width: 20vw;
 }
 
-.carousel.caption {
-  background-color: transparent;
+.carousel-caption {
+  opacity: 0%;
 }
 
-.carousel-indicators li {
-  background-color: transparent;
+.carousel-indicators {
+  opacity: 0%;
+}
+
+.carousel-item {
+
 }
 
 h1,
