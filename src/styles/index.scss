@@ -1,14 +1,28 @@
-* {
-  margin: 0.5vw;
-  background-color: rgb(202, 201, 201);
+
+
+
+
+// body {
+//   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+//     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+//     sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+
+#main-logo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+#main-logo {
+  // display: block;
+  margin: 2vw;
+  // align-content: center;
+  width: 30vw;
+  border-radius: 13px;
 }
 
 #form-box {
@@ -25,28 +39,50 @@ body {
   justify-content: center;
 }
 
-#editButton {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  // margin-left: 12vw;
-  // margin-right: 25vw;
-}
-
-#main-logo {
+.input-field {
   display: block;
   margin: 0 auto;
-  // align-content: center;
-  width: 35vw;
-  border-radius: 13px;
+  align-items: center;
+  width: 60vw;
+  margin-bottom: 2vw;
+  background-color: aliceblue;
+  border-radius: 2rem;
+  text-align: center;
 }
 
-.carousel {
+#status-heading {
+  margin: 3vh;
+  margin-bottom: 0;
+}
+
+#status-buttons {
+  display: flex;
+  // flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top:1.8vw;
+  margin-bottom: 1.9vh;
+  margin-left: 15vw;
+  margin-right: 15vw;
+}
+
+#date-view {
+  display: block;
+  margin: 0 auto;
+  width: 15vw;
+  border-radius: 2rem;
+  background-color: rgb(245, 247, 247);
+  text-align: center;
+}
+
+
+
+carousel {
   display: flex;
   flex-direction: row;
-  margin: 0 auto;
-  height: 23vh;
-  width: 20vw;
+  // margin: 0 auto;
+  height: 10vh;
+  width: 1vw;
 }
 
 .carousel-caption {
@@ -68,6 +104,8 @@ h4,
 h5,
 h6,
 p {
+  font-family: lato;
+  // font-size: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -78,16 +116,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-button.btn-primary {
-  margin: 1vw;
-}
-
-button {
+#save-btn {
   display: flex;
   flex-direction: column;
   justify-self: center;
   align-self: center;
   align-items: center;
   width: 9vw;
+  margin: 2vw;
 }

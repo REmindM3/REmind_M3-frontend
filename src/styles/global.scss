@@ -1,0 +1,25 @@
+* {
+    margin: 0.1;
+    background-color: rgb(154, 154, 154);
+  }
+
+#status-alert {
+    color:rgb(255, 149, 0);
+    font-style: italic;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: lato;
+  // font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
