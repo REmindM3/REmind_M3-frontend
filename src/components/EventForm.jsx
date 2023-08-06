@@ -33,18 +33,18 @@ export default function EventForm(props) {
       setLocalTitle(tempEvent.title);
       setLocalDescription(tempEvent.description);
       setLocalIsPrivate(tempEvent.isPrivate);
-      setLocalAlertDate(tempEvent.AlertDate);
+      setLocalAlertDate(tempEvent.alertDate);
       setLocalCreatedAtDate(tempEvent.localCreatedAtDate);
     }
   }, [globalEventsData, _id]);
 
   const saveEventToGlobal = () => {
     let tempNewEvent = {
-      username: "jairo",
+      username: "Jairo",
       title: localTitle,
       description: localDescription,
       isPrivate: localIsPrivate,
-      AlertDate: localAlertDate,
+      alertDate: localAlertDate,
       createdAtDate: localCreatedAtDate,
     };
 

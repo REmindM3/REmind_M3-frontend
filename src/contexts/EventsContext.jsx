@@ -56,7 +56,7 @@ const eventsReducer = (previousState, instructions) => {
       console.log("ToDo: Delete event from state");
       break;
     case "sortByAlertDate":
-      console.log("Sorted state data by due date");
+      console.log("Sorted state data by alert date");
       break;
     case "sortByCreatedDate":
       console.log("Sorted state data by created date");

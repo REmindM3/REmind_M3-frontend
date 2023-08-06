@@ -17,8 +17,7 @@ export default function EventDisplay(props) {
       })
     );
 
-    // Alternative syntax:
-    // setLocalEvent(globalEventsData.find(globalSpecificEvent => globalSpecificEvent.id === id));
+  
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [globalEventsData, _id]);
@@ -47,7 +46,7 @@ export default function EventDisplay(props) {
         checked={Boolean(localEvent.isPrivate)}
         value={localEvent.isPrivate}
       />
-      <h5>Alert Date: {new Date(localEvent.dueDate).toLocaleDateString()}</h5>
+      <h5>Alert Date: {new Date(localEvent.alertDate).toLocaleDateString()}</h5>
       {/* <input type="date" readOnly value={event.dueDate} /> */}
       <h5>
         Created At: {new Date(localEvent.createdAtDate).toLocaleDateString()}

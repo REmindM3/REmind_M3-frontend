@@ -7,14 +7,14 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/events" element={<h1>ToDo</h1>} />
-        <Route path="/events/:eventID" element={<h1>ToDo</h1>} />
-        <Route path="/events/:eventID/edit" element={<h1>ToDo</h1>} />
-        <Route path="/events/searchByWord/:word" element={<h1>ToDo</h1>} />
-        <Route path="/events/sort/dueDate" element={<h1>ToDo</h1>} />
-        <Route path="/events/sort/createdDate" element={<h1>ToDo</h1>} />
-        <Route path="/events/filter/overdue" element={<h1>ToDo</h1>} />
-        <Route path="/events/filter/done" element={<h1>ToDo</h1>} />
+        <Route path="/events" element={<h1>""</h1>} />
+        <Route path="/events/:eventID" element={<h1>""</h1>} />
+        <Route path="/events/:eventID/edit" element={<h1>""</h1>} />
+        <Route path="/events/searchByWord/:word" element={<h1>""</h1>} />
+        <Route path="/events/sort/alertDate" element={<h1>""</h1>} />
+        <Route path="/events/sort/createdDate" element={<h1>""</h1>} />
+        {/* <Route path="/events/filter/overdue" element={<h1>""</h1>} /> */}
+        {/* <Route path="/events/filter/done" element={<h1>""</h1>} /> */}
       </Routes>
     </div>
   );
