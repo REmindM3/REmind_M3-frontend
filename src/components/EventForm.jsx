@@ -17,11 +17,12 @@ export default function EventForm(props) {
   // const [localCreator, setLocalCreator] = useState("");
   const [localTitle, setLocalTitle] = useState("");
   const [localDescription, setLocalDescription] = useState("");
-  const [localIsPrivate, setLocalIsPrivate] = useState("");
+  const [isPrivate, setIsPrivate] = useState(null);
   const [localAlertDate, setLocalAlertDate] = useState(
     new Date().setDate(new Date().getDate() + 1)
   );
   const [localCreatedAtDate, setLocalCreatedAtDate] = useState(Date.now());
+  const [error, setError] = useState("");
 
   useEffect(() => {
     let tempEvent = globalEventsData.find((globalSpecificEvent) => {
@@ -32,19 +33,24 @@ export default function EventForm(props) {
       // We found a event!!!
       setLocalTitle(tempEvent.title);
       setLocalDescription(tempEvent.description);
-      setLocalIsPrivate(tempEvent.isPrivate);
-      setLocalAlertDate(tempEvent.AlertDate);
+      setIsPrivate(tempEvent.isPrivate);
+      setLocalAlertDate(tempEvent.alertDate);
       setLocalCreatedAtDate(tempEvent.localCreatedAtDate);
     }
   }, [globalEventsData, _id]);
 
   const saveEventToGlobal = () => {
+    if (isPrivate === null) {
+      setError(" * Is This Is A Private Or Community Event?\n ");
+      return;
+    }
+
     let tempNewEvent = {
-      username: "jairo",
+      username: "Jairo",
       title: localTitle,
       description: localDescription,
-      isPrivate: localIsPrivate,
-      AlertDate: localAlertDate,
+      isPrivate: isPrivate,
+      alertDate: localAlertDate,
       createdAtDate: localCreatedAtDate,
     };
 
@@ -59,33 +65,59 @@ export default function EventForm(props) {
   return (
     <div id="form-box">
       <form id="event-box">
-        <label>Title:</label>
+        <label>
+          <h3>Title:</h3>
+        </label>
         <input
+          className="input-field"
           type="text"
           name="title"
           value={localTitle}
           onChange={(event) => setLocalTitle(event.target.value)}
         />
 
-        <label>Description:</label>
+        <label>
+          <h3>Description:</h3>
+        </label>
         <input
+          className="input-field"
           type="text"
           name="description"
           value={localDescription}
           onChange={(event) => setLocalDescription(event.target.value)}
         />
 
-        <label>Private Event:</label>
-        <input
-          type="checkbox"
-          name="isPrivate"
-          value={localIsPrivate}
-          checked={localIsPrivate}
-          onChange={(event) => setLocalIsPrivate(!localIsPrivate)}
-        />
+        <label id="status-heading">
+          <h3>Event Status:</h3>
+        </label>
 
-        <label>Alert Date:</label>
+         {error && <h5 id="status-alert">{error}</h5>}
+        
+        <div id="status-buttons">
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            onClick={() => setIsPrivate(true)}
+            style={{ backgroundColor: isPrivate === true ? "darkgreen" : "" }}
+          >
+            Private
+          </button>
+          <h4> ---- OR ---- </h4>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            onClick={() => setIsPrivate(false)}
+            style={{ backgroundColor: isPrivate === false ? "darkgreen" : "" }}
+          >
+            Share
+          </button>
+        </div>
+
+        <label>
+          <h3>Alert Date:</h3>
+        </label>
         <input
+          id="date-view"
           type="date"
           name="alertDate"
           value={new Date(localAlertDate).toISOString().split("T")[0]}
@@ -94,19 +126,13 @@ export default function EventForm(props) {
             setLocalAlertDate(event.target.value);
           }}
         />
-
-        {/* Event- this will be handled by the reducer, not the human: */}
-        {/* <label>Created At:</label>
-        <input
-          type="text"
-          name="createdAtDate"
-          value={localCreatedAtDate}
-          onChange={setLocalCreatedAtDate}
-        /> */}
       </form>
-      <Button variant="primary" onClick={saveEventToGlobal}>
+
+      <Button id="save-btn" variant="success" onClick={saveEventToGlobal}>
         Save Event
       </Button>
+      
     </div>
+    
   );
 }

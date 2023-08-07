@@ -1,19 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { useLocalStorage } from "react-use";
 
-const initialEventsData = [
-  // {
-  //   id: 1,
-  //   title: "Bobs birthday",
-  //   description: "Lets party, people!",
-  //   isPrivate: boolean,
-  //   isActive: boolean
-  //   alertDate: new Date().setDate(new Date().getDate() + 1), // Current date plus one day (in future.)
-  //   createdAtDate: Date.now(),
-  //   creator: username,
-  //   
-  // },
-];
+const initialEventsData = [];
 
 const eventsReducer = (previousState, instructions) => {
   let stateEditable = [...previousState];
@@ -44,7 +32,7 @@ const eventsReducer = (previousState, instructions) => {
       let targetEventIndex = stateEditable.findIndex((globalSpecificEvent) => {
         //console.log("Some event data");
 
-        return globalSpecificEvent.id === instructions.updatedEvent.id;
+        return globalSpecificEvent._id === instructions.updatedEvent._id;
       });
 
       // 2. Overwrite existing event
@@ -56,7 +44,7 @@ const eventsReducer = (previousState, instructions) => {
       console.log("ToDo: Delete event from state");
       break;
     case "sortByAlertDate":
-      console.log("Sorted state data by due date");
+      console.log("Sorted state data by alert date");
       break;
     case "sortByCreatedDate":
       console.log("Sorted state data by created date");

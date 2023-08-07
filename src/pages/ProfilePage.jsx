@@ -2,7 +2,7 @@ import EventForm from "../components/EventForm";
 import EventParent from "../components/EventParent";
 import { useEventData, useEventDispatch } from "../contexts/EventsContext";
 import logo from "../img/header-logo.png";
-import MyCarousel from "../components/home.jsx"; // import MyCarousel component
+// import MyCarousel from "../components/home.jsx"; // import MyCarousel component
 import { useEffect } from "react";
 import { getEvents } from "../services/eventsServices";
 
@@ -11,20 +11,24 @@ export default function Homepage(props) {
   const globalEventsDispatch = useEventDispatch();
 
   useEffect(() => {
-    getEvents().then(data => globalEventsDispatch({ type: "setup", data: data }))
-    fetch("http://localhost:3007/events")
-  }, []);
+    getEvents().then((data) =>
+      globalEventsDispatch({ type: "setup", data: data })
+    );
+  // eslint-disable-next-line
+  },[]);
 
   return (
-    <div>
-      {/* main heading image */}
-      <img src={logo} id="main-logo" alt="Logo" />
 
+    
+    <div >
+      <div id="main-logo-container">
+          <img src={logo} id="main-logo" alt="Logo" />
+      </div>
       {/* Add MyCarousel component */}
-      <MyCarousel />
+      {/* <MyCarousel /> */}
 
       {/* Event Count Component */}
-      <h3>Welcome, There Are {globalEventsData.length} Events Active!</h3>
+      <u><h3>Welcome, There Are {globalEventsData.length} Events Active!</h3></u>
 
       {/* Event Form Component */}
       <h3>Create A New Event:</h3>
