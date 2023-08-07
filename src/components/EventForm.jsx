@@ -95,6 +95,7 @@ export default function EventForm(props) {
         
         <div id="status-buttons">
           <button
+            id="pvt-btn"
             type="button"
             className="btn btn-primary btn-lg"
             onClick={() => setIsPrivate(true)}
@@ -104,12 +105,13 @@ export default function EventForm(props) {
           </button>
           <h4> ---- OR ---- </h4>
           <button
+            id="pblc-btn"
             type="button"
             className="btn btn-primary btn-lg"
             onClick={() => setIsPrivate(false)}
             style={{ backgroundColor: isPrivate === false ? "darkgreen" : "" }}
           >
-            Share
+            Shared
           </button>
         </div>
 

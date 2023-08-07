@@ -56,6 +56,13 @@ export default function Homepage(props) {
       <div id="user-icon-container">
         <img src={usr_icon} id="user-icon" alt="user-icon" />
       </div>
+
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary">Left</button>
+        <button type="button" class="btn btn-secondary">Middle</button>
+        <button type="button" class="btn btn-secondary">Right</button>
+      </div>
+
       {/* Add MyCarousel component */}
       {/* <MyCarousel /> */}
 
@@ -75,6 +82,7 @@ export default function Homepage(props) {
           <div key={event._id}>
             {/* <EventDisplay id={event.id} /> */}
             <EventParent _id={event._id} />
+
           </div>
         );
       })}
