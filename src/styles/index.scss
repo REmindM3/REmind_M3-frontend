@@ -9,8 +9,8 @@
 #top-btn-container button:first-child {
   margin-right: auto;
   border-radius: 50%;
-  width: 8vw;
-  height: 6vw;
+  width: 4vw;
+  height: 3vw;
   text-shadow: 1px 1px 0px #000;
   box-shadow: 0 7px 0px #083766;
 }
@@ -44,19 +44,24 @@
   border-radius: 13px;
 }
 
-#downward-triangle {
-  width: 0;
-  height: 0;
-  border-left: 13vw solid transparent;
-  border-right: 13vw solid transparent;
-  border-top: 20vh solid grey;
-  margin-bottom: 2vw;
-}
-
-#triangle-container {
+#user-icon-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  // border-left: 13vw solid transparent;
+  // border-right: 13vw solid transparent;
+  // border-top: 20vh;
+}
+
+#user-icon {
+  width: 27vw;
+  height: 27vh;
+  // background-image: url('src/img/user-icon.png');
+  clip-path: polygon(50% 100%, 0% 5.5%, 100% 5.5%);
+  // box-shadow: 10px 10px 10px 10px black;
+  // border: 5px solid black;
 }
 
 #form-box {
