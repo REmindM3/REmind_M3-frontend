@@ -41,7 +41,7 @@ export default function EventForm(props) {
 
   const saveEventToGlobal = () => {
     if (isPrivate === null) {
-      setError(" * Is This Is A Private Or Community Event");
+      setError(" * Is This Is A Private Or Community Event?\n ");
       return;
     }
 
@@ -91,8 +91,8 @@ export default function EventForm(props) {
           <h3>Event Status:</h3>
         </label>
 
-        {error && <h5 id="status-alert">{error}</h5>}
-
+         {error && <h5 id="status-alert">{error}</h5>}
+        
         <div id="status-buttons">
           <button
             type="button"
@@ -131,6 +131,8 @@ export default function EventForm(props) {
       <Button id="save-btn" variant="success" onClick={saveEventToGlobal}>
         Save Event
       </Button>
+      
     </div>
+    
   );
 }

@@ -1,11 +1,16 @@
 * {
     margin: 0.1;
-    background-color: rgb(154, 154, 154);
-  }
+    background-color: antiquewhite;
+    // background-image: url("../img/gree-tex.jpg");
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    
+    }
 
 #status-alert {
-    color:rgb(255, 149, 0);
-    font-style: italic;
+  color:rgb(255, 149, 0);
+  
+  font-style: italic, bold;
 }
 
 
@@ -22,4 +27,5 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: -auto;
 }
