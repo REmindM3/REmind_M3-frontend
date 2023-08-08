@@ -8,50 +8,24 @@ export default function EventDisplay(props) {
   const globalEventsData = useEventData();
 
   useEffect(() => {
-    // on start, find the event in globalEventsData
-    // that has an ID matching props.id
-
     setLocalEvent(
       globalEventsData.find((globalSpecificEvent) => {
         return globalSpecificEvent._id === _id;
       })
     );
 
-  
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [globalEventsData, _id]);
 
   return (
-    <div>
-      {/*
-                - ID (number)
-                - title (string)
-                - description (string)
-                - isPrivate (boolean)
-                - alert date (JS Date)
-                - created at date (JS Date)
-                */}
-      <h4>{localEvent.title}</h4>
-      <p>{localEvent.description}</p>
-      {/* <h5>status:</h5> */}
-      <h5>status:<p>{localEvent.isPrivate ? "PRIVATE" : "PUBLIC"}</p></h5>
-
-      {/* makes a read-only checkbox */}
-      <input
-        type="checkbox"
-        disabled="disabled" // <--- user cannot click the checkbox
-        onChange={null}
-        readOnly={true}
-        checked={Boolean(localEvent.isPrivate)}
-        value={localEvent.isPrivate}
-      />
-      <h5>Alert Date: {new Date(localEvent.alertDate).toLocaleDateString()}</h5>
-      {/* <input type="date" readOnly value={event.dueDate} /> */}
-      <h5>
+    <>
+      <h5 className="card-title">{localEvent.title}</h5>
+      <p className="card-text">{localEvent.description}</p>
+      <h6>Status: {localEvent.isPrivate ? "PRIVATE" : "PUBLIC"}</h6>
+      <h6>Alert Date: {new Date(localEvent.alertDate).toLocaleDateString()}</h6>
+      <h6>
         Created At: {new Date(localEvent.createdAtDate).toLocaleDateString()}
-      </h5>
-      {/* <input type="datetime-local" readOnly value={event.createdAtDate} /> */}
-    </div>
+      </h6>
+    </>
   );
 }

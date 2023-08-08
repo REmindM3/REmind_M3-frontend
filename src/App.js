@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import EventsPage from "./pages/EventsPage";
+import ProfilePage from "./pages/ProfilePage";
 
 // start rendering stuff from this file
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<EventsPage />} />
+        <Route path="/" element={<ProfilePage />} />
         <Route path="/events" element={<h1>""</h1>} />
         <Route path="/events/:eventID" element={<h1>""</h1>} />
         <Route path="/events/:eventID/edit" element={<h1>""</h1>} />

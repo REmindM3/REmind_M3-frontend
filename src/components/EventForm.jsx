@@ -41,7 +41,7 @@ export default function EventForm(props) {
 
   const saveEventToGlobal = () => {
     if (isPrivate === null) {
-      setError(" * Is This Is A Private Or Community Event?\n ");
+      setError(" * Is This Is A Private Or Community Event? * ");
       return;
     }
 

@@ -7,7 +7,7 @@ import usr_icon from "../img/user-icon.png";
 import { useEffect } from "react";
 import { getEvents } from "../services/eventsServices";
 
-export default function Homepage(props) {
+export default function Eventspage(props) {
   const globalEventsData = useEventData();
   const globalEventsDispatch = useEventDispatch();
 
@@ -57,11 +57,7 @@ export default function Homepage(props) {
         <img src={usr_icon} id="user-icon" alt="user-icon" />
       </div>
 
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary">Left</button>
-        <button type="button" class="btn btn-secondary">Middle</button>
-        <button type="button" class="btn btn-secondary">Right</button>
-      </div>
+      
 
       {/* Add MyCarousel component */}
       {/* <MyCarousel /> */}
@@ -82,7 +78,6 @@ export default function Homepage(props) {
           <div key={event._id}>
             {/* <EventDisplay id={event.id} /> */}
             <EventParent _id={event._id} />
-
           </div>
         );
       })}

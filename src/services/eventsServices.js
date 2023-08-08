@@ -18,3 +18,18 @@ export async function createEvent(data){
     console.log(json)
     return json
 }
+
+// export async function deleteEvent
+
+
+
+// export async function handleDeleteClick()  {
+//     if (window.confirm('Are you sure you want to delete this event?')) {
+//       // Delete the event
+//       const response = await fetch(`/events/${props._id}`, {
+//         method: 'delete',
+//       });
+//       const data = await response.json();
+//       console.log(data);
+//     }
+//   };
