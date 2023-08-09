@@ -161,6 +161,18 @@ code {
   margin: 2vw;
 }
 
+.card-body {
+  display: flex;
+  flex: 1 1 auto;
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  color: var(--bs-card-color);
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (max-width: 848px) {
   #main-logo {
     width: 50vw;
@@ -179,6 +191,10 @@ code {
   #date-view {
     width: 45vw;
   }  
+}
+
+#create-confirm-msg{
+  color: red;
 }
 
 @media screen and (max-width: 600px) {

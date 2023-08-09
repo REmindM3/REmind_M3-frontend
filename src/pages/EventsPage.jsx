@@ -7,7 +7,7 @@ import usr_icon from "../img/user-icon.png";
 import { useEffect } from "react";
 import { getEvents } from "../services/eventsServices";
 
-export default function Eventspage(props) {
+export default function EventsPage(props) {
   const globalEventsData = useEventData();
   const globalEventsDispatch = useEventDispatch();
 

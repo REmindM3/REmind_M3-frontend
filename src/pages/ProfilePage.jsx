@@ -6,11 +6,13 @@ import logo from "../img/header-logo.png";
 import usr_icon from "../img/user-icon.png";
 // import MyCarousel from "../components/home.jsx"; // import MyCarousel component
 import { getEvents } from "../services/eventsServices";
+import { useNavigate } from "react-router-dom";
 
 export default function ProfilePage(props) {
   const globalEventsData = useEventData();
   const globalEventsDispatch = useEventDispatch();
   const [showEventForm, setShowEventForm] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getEvents().then((data) =>
@@ -19,7 +21,12 @@ export default function ProfilePage(props) {
     // eslint-disable-next-line
   }, []);
 
-  const handleButtonClick = () => {
+  // Check for duplicate _id values
+  const ids = globalEventsData.map(event => event._id);
+  const hasDuplicates = new Set(ids).size !== ids.length;
+  console.log('Has duplicate _id values:', hasDuplicates);
+
+  const handleCreateClick = () => {
     setShowEventForm(!showEventForm);
   };
 
@@ -32,6 +39,7 @@ export default function ProfilePage(props) {
           className="btn btn-primary"
           data-toggle="button"
           aria-pressed="false"
+          onClick={() => navigate("/")}
         >
           left
         </button>
@@ -76,7 +84,7 @@ export default function ProfilePage(props) {
           id="create-new-toggle"
           type="button"
           className="btn btn-primary btn-lg"
-          onClick={handleButtonClick}
+          onClick={handleCreateClick}
         >
           Create
         </button>
@@ -86,11 +94,11 @@ export default function ProfilePage(props) {
       {/* <MyCarousel /> */}
 
       {/* Event Count Component */}
-      <u>
+      {/* <u>
         <h3>You Have {globalEventsData.length} Events Active!</h3>
-      </u>
+      </u> */}
 
-      {/* Event Form Component */}
+      {/* Event Form Component */} 
       {showEventForm ? (
         <>
           <h3>Create A New Event:</h3>
@@ -103,7 +111,6 @@ export default function ProfilePage(props) {
       {globalEventsData.map((event) => {
         return (
           <div key={event._id}>
-            {/* <EventDisplay id={event.id} /> */}
             <EventParent _id={event._id} />
           </div>
         );
