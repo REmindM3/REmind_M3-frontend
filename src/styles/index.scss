@@ -64,9 +64,11 @@
   margin-bottom: 3vh;
   margin-right: 40vw;
   margin-left: 40vw;
+  flex-direction: row;
+  justify-content: center;
 }
 
-u{
+u {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -166,11 +168,11 @@ code {
   flex: 1 1 auto;
   padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
   color: var(--bs-card-color);
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-content: center;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  align-items: baseline;
 }
 
 @media screen and (max-width: 848px) {
@@ -190,12 +192,20 @@ code {
   #save-btn,
   #date-view {
     width: 45vw;
-  }  
+  }
 }
 
-#create-confirm-msg{
+#create-confirm-msg {
   color: red;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
 }

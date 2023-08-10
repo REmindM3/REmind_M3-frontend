@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import EventForm from './EventForm';
-import EventDisplay from './EventDisplay';
+import ProfileDisplay from './ProfileDisplay';
 import { EventDispatchContext } from '../contexts/EventsContext';
 
 export default function EventParent(props) {
@@ -39,7 +39,7 @@ export default function EventParent(props) {
         {editMode ? (
           <EventForm _id={props._id} />
         ) : (
-          <EventDisplay _id={props._id} />
+          <ProfileDisplay _id={props._id} />
         )}
         <button className="btn btn-primary" onClick={toggleEditMode}>
           {editMode ? 'Cancel' : 'Edit Event'}

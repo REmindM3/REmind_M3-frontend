@@ -39,9 +39,9 @@ export default function ProfilePage(props) {
           className="btn btn-primary"
           data-toggle="button"
           aria-pressed="false"
-          onClick={() => navigate("/")}
+          onClick={() => navigate('/events')}
         >
-          left
+          Events
         </button>
         <button
           id="event-toggle"
@@ -58,6 +58,7 @@ export default function ProfilePage(props) {
           className="btn btn-primary"
           data-toggle="button"
           aria-pressed="false"
+
         >
           b2
         </button>
@@ -94,9 +95,9 @@ export default function ProfilePage(props) {
       {/* <MyCarousel /> */}
 
       {/* Event Count Component */}
-      {/* <u>
+      <u>
         <h3>You Have {globalEventsData.length} Events Active!</h3>
-      </u> */}
+      </u>
 
       {/* Event Form Component */} 
       {showEventForm ? (

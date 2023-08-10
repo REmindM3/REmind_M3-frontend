@@ -1,15 +1,17 @@
+import React, { useState, useEffect } from "react";
 import EventForm from "../components/EventForm";
 import EventParent from "../components/EventParent";
 import { useEventData, useEventDispatch } from "../contexts/EventsContext";
 import logo from "../img/header-logo.png";
-import usr_icon from "../img/user-icon.png";
 // import MyCarousel from "../components/home.jsx"; // import MyCarousel component
-import { useEffect } from "react";
 import { getEvents } from "../services/eventsServices";
+import { useNavigate } from "react-router-dom";
 
-export default function EventsPage(props) {
+export default function ProfilePage(props) {
   const globalEventsData = useEventData();
   const globalEventsDispatch = useEventDispatch();
+  const [showEventForm, setShowEventForm] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getEvents().then((data) =>
@@ -17,6 +19,15 @@ export default function EventsPage(props) {
     );
     // eslint-disable-next-line
   }, []);
+
+  // Check for duplicate _id values
+  const ids = globalEventsData.map((event) => event._id);
+  const hasDuplicates = new Set(ids).size !== ids.length;
+  console.log("Has duplicate _id values:", hasDuplicates);
+
+  const handleCreateClick = () => {
+    setShowEventForm(!showEventForm);
+  };
 
   return (
     <div>
@@ -27,8 +38,10 @@ export default function EventsPage(props) {
           className="btn btn-primary"
           data-toggle="button"
           aria-pressed="false"
+          
+          onClick={() => navigate("/profile")}
         >
-          left
+          Profile
         </button>
         <button
           id="event-toggle"
@@ -36,8 +49,9 @@ export default function EventsPage(props) {
           className="btn btn-primary"
           data-toggle="button"
           aria-pressed="false"
+          onClick={() => navigate("/")}
         >
-          b1
+          Login
         </button>
         <button
           id="event-toggle"
@@ -53,30 +67,45 @@ export default function EventsPage(props) {
       <div id="main-logo-container">
         <img src={logo} id="main-logo" alt="Logo" />
       </div>
-      <div id="user-icon-container">
-        <img src={usr_icon} id="user-icon" alt="user-icon" />
-      </div>
 
-      
+      <div
+        id="profile-opt-bar"
+        className="btn-group"
+        role="group"
+        aria-label="Basic example"
+      >
+        
+        <button
+          id="create-new-toggle"
+          type="button"
+          className="btn btn-primary btn-lg"
+          onClick={handleCreateClick}
+        >
+          Create An Event
+        </button>
+      </div>
 
       {/* Add MyCarousel component */}
       {/* <MyCarousel /> */}
 
       {/* Event Count Component */}
       <u>
-        <h3>Welcome, There Are {globalEventsData.length} Events Active!</h3>
+        <h3>There are {globalEventsData.length} Events Active!</h3>
       </u>
 
       {/* Event Form Component */}
-      <h3>Create A New Event:</h3>
-      <EventForm />
+      {showEventForm ? (
+        <>
+          <h3>Create A New Event:</h3>
+          <EventForm />
+        </>
+      ) : null}
 
       {/* List Of All Events Component */}
       <h2>List of all events:</h2>
       {globalEventsData.map((event) => {
         return (
           <div key={event._id}>
-            {/* <EventDisplay id={event.id} /> */}
             <EventParent _id={event._id} />
           </div>
         );
