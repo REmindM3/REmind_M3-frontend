@@ -41,7 +41,7 @@ const eventsReducer = (previousState, instructions) => {
       // 3. Return updated state array of events
       return stateEditable;
     case "delete":
-      console.log("ToDo: Delete event from state");
+      console.log("Delete event from state");
       break;
     case "sortByAlertDate":
       console.log("Sorted state data by alert date");

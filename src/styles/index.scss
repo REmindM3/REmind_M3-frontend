@@ -9,21 +9,21 @@
 #top-btn-container button:first-child {
   margin-right: auto;
   border-radius: 50%;
-  width: 8vw;
-  height: 6vw;
+  width: 4vw;
+  height: 3.5vw;
   text-shadow: 1px 1px 0px #000;
   box-shadow: 0 7px 0px #083766;
 }
 
 #top-btn-container button:nth-child(3) {
-  margin-left: 4vw;
+  margin-left: 6vw;
 }
 
 #top-btn-container button:nth-child(2),
 #top-btn-container button:nth-child(3) {
   border-radius: 50%;
-  width: 8vw;
-  height: 6vw;
+  width: 4vw;
+  height: 3.5vw;
   text-shadow: 1px 1px 0px #000;
   box-shadow: 0 7px 0px #083766;
 }
@@ -44,17 +44,35 @@
   border-radius: 13px;
 }
 
-#downward-triangle {
-  width: 0;
-  height: 0;
-  border-left: 13vw solid transparent;
-  border-right: 13vw solid transparent;
-  border-top: 20vh solid grey;
-  margin-bottom: 2vw;
+#user-icon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#triangle-container {
+#user-icon {
   display: flex;
+  // width: 27vw;
+  height: 28vh;
+  margin-bottom: 3vh;
+  clip-path: polygon(50% 100%, 0% 5.5%, 100% 5.5%);
+}
+
+#profile-opt-bar {
+  display: flex;
+  margin-bottom: 3vh;
+  margin-right: 40vw;
+  margin-left: 40vw;
+  flex-direction: row;
+  justify-content: center;
+}
+
+u {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
   justify-content: center;
   align-items: center;
 }
@@ -63,8 +81,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // margin-left: 12vw;
-  // margin-right: 12vw;
+  margin-left: 12vw;
+  margin-right: 12vw;
 }
 
 #event-box {
@@ -106,7 +124,7 @@
   margin: 0 auto;
   width: 15vw;
   border-radius: 2rem;
-  background-color: rgba(240, 248, 248, 0);
+  background-color: rgb(240, 248, 248);
   text-align: center;
 }
 
@@ -143,4 +161,51 @@ code {
   align-items: center;
   width: 9vw;
   margin: 2vw;
+}
+
+.card-body {
+  display: flex;
+  flex: 1 1 auto;
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  color: var(--bs-card-color);
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+@media screen and (max-width: 848px) {
+  #main-logo {
+    width: 50vw;
+  }
+  #user-icon {
+    width: 40vw;
+    height: 15vh;
+  }
+  #status-buttons {
+    flex-direction: column;
+    height: 20vh;
+  }
+  #pvt-btn,
+  #pblc-btn,
+  #save-btn,
+  #date-view {
+    width: 45vw;
+  }
+}
+
+#create-confirm-msg {
+  color: red;
+}
+
+@media screen and (max-width: 900px) {
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
 }

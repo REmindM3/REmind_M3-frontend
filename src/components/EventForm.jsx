@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useEventData, useEventDispatch } from "../contexts/EventsContext";
 import Button from "react-bootstrap/Button";
 import { createEvent } from "../services/eventsServices";
+import { Toast } from "react-bootstrap"; // import Toast component
 
 export default function EventForm(props) {
   // If this is null/no prop provided, we are creating a event
@@ -23,6 +24,7 @@ export default function EventForm(props) {
   );
   const [localCreatedAtDate, setLocalCreatedAtDate] = useState(Date.now());
   const [error, setError] = useState("");
+  const [showToast, setShowToast] = useState(false); // add state for toast visibility
 
   useEffect(() => {
     let tempEvent = globalEventsData.find((globalSpecificEvent) => {
@@ -41,7 +43,7 @@ export default function EventForm(props) {
 
   const saveEventToGlobal = () => {
     if (isPrivate === null) {
-      setError(" * Is This Is A Private Or Community Event?\n ");
+      setError(" * Is This Is A Private Or Community Event? * ");
       return;
     }
 
@@ -60,6 +62,7 @@ export default function EventForm(props) {
       createEvent(tempNewEvent).then((data) => console.log(data));
       globalEventsDispatch({ type: "create", newEvent: tempNewEvent });
     }
+    setShowToast(true); // show the toast when event is saved
   };
 
   return (
@@ -91,10 +94,11 @@ export default function EventForm(props) {
           <h3>Event Status:</h3>
         </label>
 
-         {error && <h5 id="status-alert">{error}</h5>}
-        
+        {error && <h5 id="status-alert">{error}</h5>}
+
         <div id="status-buttons">
           <button
+            id="pvt-btn"
             type="button"
             className="btn btn-primary btn-lg"
             onClick={() => setIsPrivate(true)}
@@ -104,12 +108,13 @@ export default function EventForm(props) {
           </button>
           <h4> ---- OR ---- </h4>
           <button
+            id="pblc-btn"
             type="button"
             className="btn btn-primary btn-lg"
             onClick={() => setIsPrivate(false)}
             style={{ backgroundColor: isPrivate === false ? "darkgreen" : "" }}
           >
-            Share
+            Shared
           </button>
         </div>
 
@@ -131,8 +136,18 @@ export default function EventForm(props) {
       <Button id="save-btn" variant="success" onClick={saveEventToGlobal}>
         Save Event
       </Button>
-      
+
+      <Toast
+        onClose={() => setShowToast(false)}
+        show={showToast}
+        delay={3000}
+        autohide
+      >
+        <Toast.Header>
+          <strong className="me-auto">Success</strong>
+        </Toast.Header>
+        <Toast.Body>Your event has been created.</Toast.Body>
+      </Toast>
     </div>
-    
   );
 }
