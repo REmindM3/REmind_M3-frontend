@@ -5,8 +5,6 @@ import { createEvent } from "../services/eventsServices";
 import { Toast } from "react-bootstrap"; // import Toast component
 
 export default function EventForm(props) {
-  // If this is null/no prop provided, we are creating a event
-  // If id has value, we are editing a event.
   const { _id } = props;
 
   // this is to read the global events data:
@@ -14,8 +12,7 @@ export default function EventForm(props) {
   // The dispatch is our reducer, can edit global events data:
   const globalEventsDispatch = useEventDispatch();
 
-  //   const [localId, setLocalId] = useState("");
-  // const [localCreator, setLocalCreator] = useState("");
+ 
   const [localTitle, setLocalTitle] = useState("");
   const [localDescription, setLocalDescription] = useState("");
   const [isPrivate, setIsPrivate] = useState(null);
@@ -32,7 +29,6 @@ export default function EventForm(props) {
     });
 
     if (tempEvent) {
-      // We found a event!!!
       setLocalTitle(tempEvent.title);
       setLocalDescription(tempEvent.description);
       setIsPrivate(tempEvent.isPrivate);
@@ -47,6 +43,7 @@ export default function EventForm(props) {
       return;
     }
 
+    // Creating a temporary new event object with properties from state variables and hardcoded username
     let tempNewEvent = {
       username: "Jairo",
       title: localTitle,
@@ -65,6 +62,7 @@ export default function EventForm(props) {
     setShowToast(true); // show the toast when event is saved
   };
 
+  // Returning JSX to display a form for creating or editing an event
   return (
     <div id="form-box">
       <form id="event-box">
