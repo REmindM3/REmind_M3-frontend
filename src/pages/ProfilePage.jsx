@@ -5,7 +5,7 @@ import { useEventData, useEventDispatch } from "../contexts/EventsContext";
 import logo from "../img/header-logo.png";
 import usr_icon from "../img/user-icon.png";
 // import MyCarousel from "../components/home.jsx"; // import MyCarousel component
-import { getEvents } from "../services/eventsServices";
+import { getMyEvents } from "../services/eventsServices";
 import { useNavigate } from "react-router-dom";
 
 export default function ProfilePage(props) {
@@ -15,16 +15,16 @@ export default function ProfilePage(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getEvents().then((data) =>
+    getMyEvents().then((data) =>
       globalEventsDispatch({ type: "setup", data: data })
     );
     // eslint-disable-next-line
   }, []);
 
   // Check for duplicate _id values
-  const ids = globalEventsData.map(event => event._id);
+  const ids = globalEventsData.map((event) => event._id);
   const hasDuplicates = new Set(ids).size !== ids.length;
-  console.log('Has duplicate _id values:', hasDuplicates);
+  console.log("Has duplicate _id values:", hasDuplicates);
 
   const handleCreateClick = () => {
     setShowEventForm(!showEventForm);
@@ -39,7 +39,7 @@ export default function ProfilePage(props) {
           className="btn btn-primary"
           data-toggle="button"
           aria-pressed="false"
-          onClick={() => navigate('/events')}
+          onClick={() => navigate("/events")}
         >
           Events
         </button>
@@ -58,7 +58,6 @@ export default function ProfilePage(props) {
           className="btn btn-primary"
           data-toggle="button"
           aria-pressed="false"
-
         >
           b2
         </button>
@@ -99,7 +98,7 @@ export default function ProfilePage(props) {
         <h3>You Have {globalEventsData.length} Events Active!</h3>
       </u>
 
-      {/* Event Form Component */} 
+      {/* Event Form Component */}
       {showEventForm ? (
         <>
           <h3>Create A New Event:</h3>
@@ -112,7 +111,8 @@ export default function ProfilePage(props) {
       {globalEventsData.map((event) => {
         return (
           <div key={event._id}>
-            <EventParent _id={event._id} />
+            {/* Pass showButtons prop as true */}
+            <EventParent _id={event._id} showStatus={true} showButtons={true} />
           </div>
         );
       })}

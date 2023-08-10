@@ -19,13 +19,15 @@ export default function EventDisplay(props) {
 
   return (
     <>
-      <h5 className="card-title">{localEvent.title}</h5>
-      <p className="card-text">{localEvent.description}</p>
-      {/* <h6>Status: {localEvent.isPrivate ? "PRIVATE" : "PUBLIC"}</h6> */}
-      <h6>Alert Date: {new Date(localEvent.alertDate).toLocaleDateString()}</h6>
-      <h6>
-        Created At: {new Date(localEvent.createdAtDate).toLocaleDateString()}
-      </h6>
-    </>
+    <h5 className="card-title">{localEvent.title}</h5>
+    <p className="card-text">{localEvent.description}</p>
+    {props.showStatus && (
+      <h6>Status: {localEvent.isPrivate ? "PRIVATE" : "PUBLIC"}</h6>
+    )}
+    <h6>Alert Date: {new Date(localEvent.alertDate).toLocaleDateString()}</h6>
+    <h6>
+      Created At: {new Date(localEvent.createdAtDate).toLocaleDateString()}
+    </h6>
+  </>
   );
 }

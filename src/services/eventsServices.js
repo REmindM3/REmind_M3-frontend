@@ -19,3 +19,8 @@ export async function createEvent(data){
     return json
 }
 
+export async function getMyEvents(){
+    const response = await fetch(`${api}/events/my-events`)
+    const json = await response.json()
+    return json
+}

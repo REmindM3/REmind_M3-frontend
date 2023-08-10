@@ -90,7 +90,7 @@ export default function ProfilePage(props) {
 
       {/* Event Count Component */}
       <u>
-        <h3>There are {globalEventsData.length} Events Active!</h3>
+        <h3>There are {globalEventsData.length} Active Events!</h3>
       </u>
 
       {/* Event Form Component */}
@@ -103,11 +103,11 @@ export default function ProfilePage(props) {
 
       {/* List Of All Events Component */}
       <h2>List of all events:</h2>
-      {globalEventsData.map((event) => {
-        return (
-          <div key={event._id}>
-            <EventParent _id={event._id} />
-          </div>
+        {globalEventsData.map((event) => {
+          return (
+            <div key={event._id}>
+              <EventParent _id={event._id} showStatus={false} />
+            </div>
         );
       })}
     </div>
