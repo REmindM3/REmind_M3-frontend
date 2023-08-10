@@ -1,9 +1,8 @@
 * {
   margin: 0.1;
-  // background-color: rgb(183, 169, 169);
-  // background-image: url("../img/gree-tex.jpg");
-  // background-size: cover;
-  // background-repeat: no-repeat;
+  background-color: rgb(200, 200, 200);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #status-alert {
@@ -20,7 +19,6 @@ h5,
 h6,
 p {
   font-family: lato;
-  // font-size: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

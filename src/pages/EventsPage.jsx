@@ -86,7 +86,9 @@ export default function ProfilePage(props) {
       </div>
 
       {/* Add MyCarousel component */}
-      {/* <MyCarousel /> */}
+      {/* <MyCarousel /> 
+      <<<----coming soon---->>> */}
+
 
       {/* Event Count Component */}
       <u>

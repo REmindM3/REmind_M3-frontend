@@ -15,6 +15,21 @@
   box-shadow: 0 7px 0px #083766;
 }
 
+#nav {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 25vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-btn {
+  background-color: rgb(38, 151, 114);
+  margin: 2vw;
+  border-radius: 9px;
+}
+
 #top-btn-container button:nth-child(3) {
   margin-left: 6vw;
 }
@@ -36,10 +51,8 @@
 }
 
 #main-logo {
-  // display: block;
   margin: 2vw;
   margin-top: 0;
-  // align-content: center;
   width: 30vw;
   border-radius: 13px;
 }
@@ -53,7 +66,6 @@
 
 #user-icon {
   display: flex;
-  // width: 27vw;
   height: 28vh;
   margin-bottom: 3vh;
   clip-path: polygon(50% 100%, 0% 5.5%, 100% 5.5%);
@@ -145,8 +157,6 @@ u {
 // }
 
 // .carousel-item {
-
-// }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

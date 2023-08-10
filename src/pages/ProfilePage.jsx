@@ -5,7 +5,7 @@ import { useEventData, useEventDispatch } from "../contexts/EventsContext";
 import logo from "../img/header-logo.png";
 import usr_icon from "../img/user-icon.png";
 // import MyCarousel from "../components/home.jsx"; // import MyCarousel component
-import { getMyEvents } from "../services/eventsServices";
+import { getEvents } from "../services/eventsServices";
 import { useNavigate } from "react-router-dom";
 
 export default function ProfilePage(props) {
@@ -15,7 +15,7 @@ export default function ProfilePage(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getMyEvents().then((data) =>
+    getEvents().then((data) =>
       globalEventsDispatch({ type: "setup", data: data })
     );
     // eslint-disable-next-line
@@ -90,9 +90,6 @@ export default function ProfilePage(props) {
         </button>
       </div>
 
-      {/* Add MyCarousel component */}
-      {/* <MyCarousel /> */}
-
       {/* Event Count Component */}
       <u>
         <h3>You Have {globalEventsData.length} Events Active!</h3>
@@ -113,6 +110,7 @@ export default function ProfilePage(props) {
           <div key={event._id}>
             {/* Pass showButtons prop as true */}
             <EventParent _id={event._id} showStatus={true} showButtons={true} />
+
           </div>
         );
       })}
